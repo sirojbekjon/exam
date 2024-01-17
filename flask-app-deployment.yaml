@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: flask-app
+  name: flask-app
+  namespace: exam-38
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:latest
+        name: flask-app
+        resources: {}
+status: {}

@@ -1,0 +1,12 @@
+1) kubectl expose deployment flask-app --port 80 --target-port 5000 --type ClusterIP -n exam-38
+2)kubectl create ingress flask-app-ingress --rule "vds.arzongina.uz/=flask-app:80" -n exam-38
+
+3) kubectl run nginx --image nginx:latest --port 80 -n exam-38
+
+4) kubectl exec -it nginx -n exam-38 -- sh
+
+5) curl vds.arzongina.uz/check-ingress
+
+
+response: {"domain":"vds.arzongina.uz","endpoint":"/check-ingress
+

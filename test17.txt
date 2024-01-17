@@ -1,0 +1,20 @@
+Name:             frontend-app-ingress
+Labels:           <none>
+Namespace:        exam-38
+Address:          10.233.60.91
+Ingress Class:    <none>
+Default backend:  <default>
+Rules:
+  Host              Path  Backends
+  ----              ----  --------
+  vds.arzongina.uz  
+                    /something   flask-app:80 (10.233.66.111:5000)
+Annotations:        kubernetes.io/ingress.class: nginx
+Events:
+  Type    Reason  Age                From                      Message
+  ----    ------  ----               ----                      -------
+  Normal  Sync    21s (x8 over 19m)  nginx-ingress-controller  Scheduled for sync
+  Normal  Sync    21s (x8 over 19m)  nginx-ingress-controller  Scheduled for sync
+  Normal  Sync    21s (x8 over 19m)  nginx-ingress-controller  Scheduled for sync
+  Normal  Sync    21s (x8 over 19m)  nginx-ingress-controller  Scheduled for sync
+  Normal  Sync    21s (x8 over 19m)  nginx-ingress-controller  Scheduled for sync
