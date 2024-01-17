@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app-deployment 
+  labels:
+    app: frontend-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: something
+        image: nvrbckdown/something        
+        env:
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: environment
+              key: ENVIRONMENT
+
+        - name: DB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: environment
+              key: DB_URI
+         
+        - name: GRPC_PORT
+          valueFrom:
+           configMapKeyRef:
+             name: environment
+             key: GRPC_PORT
+
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: environment
+              key: LOG_LEVEL
+        
+
+        - name: POD_IP
+          valueFrom:
+            configMapKeyRef:
+              name: environment
+              key: POD_IP
+           
+        - name: POD
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NODE
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: CPU
+          valueFrom:
+            resourceFieldRef:
+              containerName: frontend-app-deployment
+              resource: requests.cpu
+
+        - name: MEMORY
+          valueFrom:
+            resourceFieldRef:
+              containerName: frontend-app-deployment
+              resource: requests.memory
+        
+
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
+
+
+
+
