@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  DB_URI: postgress://admin:supersecret@10.10.10.1:5432/exam-db
+  ENVIRONMENT: development
+  GRPC_PORT: "8080"
+  LOG_LEVEL: livel1
+  POD_IP: 12.12.12.11
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: environment
+  namespace: exam-38

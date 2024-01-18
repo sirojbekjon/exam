@@ -1,2 +1,5 @@
-/
-int= /something
+{
+  "domain": "185.196.213.97:8082",
+  "endpoint": "/domain",
+  "log_level": "debug"
+}
