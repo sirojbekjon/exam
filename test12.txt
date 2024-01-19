@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-app-deployment 
+  name: repo-3-app-deployment 
   labels:
-    app: frontend-app
+    app: repo-3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-app
+      app: repo-3
   strategy: {}
   template:
     metadata:
       labels:
-        app: frontend-app
+        app: repo-3
     spec:
       containers:
-      - name: something
+      - name: repo-3:v1
         image: sirojziyo/repo-3:v1        
         env:
         - name: ENVIRONMENT
